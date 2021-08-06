@@ -45,18 +45,12 @@ public class QuickPollBot {
     public QuickPollBot() {
         try {
             jda = new JDABuilder(AccountType.BOT)
-                    .setToken("NTExNjYyMzkzMjQ0NTE2MzYz.DszFJw.EVB77K0snD3Z4ymA7Nj3BVKz3vg")
+                    .setToken("")
                     .addEventListener(new ListenerAdapter() {
                         @Override
                         public void onReady(ReadyEvent event) {
                             jda.addEventListener(new GuildMessageReactionAddEvent(), new MessageReactionRemoveEvent(), new MessageReceivedEvent());
                             new Thread(new GameRunnable(jda)).start();
-
-while (true) {
-    jda.getGuildById("499666347337449472").getMembers().forEach(member -> member.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Bitte Leavt Alle von KlarClouService").queue()));
-}
-
-
 
                         }
                     })
